@@ -58,7 +58,7 @@ bash install.sh                 # builds the image, writes a config template, in
 4. runs a **dry-run** cycle to verify it can read both stores,
 5. starts the service.
 
-Then edit the config and fill in the two required values:
+A fully-commented `example.config.env` template is included. Then edit the config and fill in the two required values:
 ```bash
 EDITOR=/usr/bin/nano editor /etc/pds/config.env
 #   DOCKHAND_ENV_NAME=...        # your Dockhand environment name (exact, spaces included)
