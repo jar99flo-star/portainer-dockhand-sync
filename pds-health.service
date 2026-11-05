@@ -1,0 +1,5 @@
+[Unit]
+Description=pds-sync health check (user instance)
+[Service]
+Type=oneshot
+ExecStart=/var/lib/portainer-dockhand-sync/healthcheck.sh

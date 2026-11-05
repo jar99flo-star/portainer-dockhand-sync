@@ -1,0 +1,8 @@
+[Unit]
+Description=pds-sync health watchdog (restart if liveness stale)
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=1min
+Persistent=true
+[Install]
+WantedBy=timers.target

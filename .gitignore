@@ -1,0 +1,21 @@
+# Secrets — NEVER commit
+config.env
+*.key
+*.pem
+
+# Runtime state (created by install/running)
+state/
+logs/
+cache/
+deploy/
+.lock
+*.alive
+
+# Vendored build-time binaries (copied in by install.sh, not committed)
+/docker
+/docker-compose
+
+# Misc
+__pycache__/
+*.pyc
+.DS_Store

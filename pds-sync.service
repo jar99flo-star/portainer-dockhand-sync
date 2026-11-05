@@ -1,0 +1,22 @@
+# pds-sync - two-way Portainer <-> Dockhand compose-stack synchronizer
+# Installed by: /var/lib/portainer-dockhand-sync/install.sh (user unit, linger on)
+[Unit]
+Description=Portainer <-> Dockhand stack sync (pds-sync)
+Documentation=file:///var/lib/portainer-dockhand-sync/README
+After=docker.service network-online.target
+Wants=docker.service
+
+[Service]
+Type=simple
+Environment=HOME=%h
+Environment=PDS_CFG=/var/lib/portainer-dockhand-sync/config.env
+WorkingDirectory=/var/lib/portainer-dockhand-sync
+ExecStart=/var/lib/portainer-dockhand-sync/run-pds.sh
+ExecStopPost=/bin/sh -c 'docker rm -f pds-sync 2>/dev/null || true'
+Restart=on-failure
+RestartSec=10
+KillMode=mixed
+TimeoutStopSec=45
+
+[Install]
+WantedBy=default.target
